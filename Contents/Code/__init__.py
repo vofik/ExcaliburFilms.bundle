@@ -16,6 +16,7 @@ def Start():
 class EXCAgent(Agent.Movies):
   name = 'Excalibur Films'
   languages = [Locale.Language.English]
+  accepts_from = ['com.plexapp.agents.localmedia']
   primary_provider = True
 
   def search(self, results, media, lang):
