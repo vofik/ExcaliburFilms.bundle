@@ -6,6 +6,7 @@ EXC_BASEURL = 'http://www.excaliburfilms.com/'
 EXC_SEARCH_MOVIES_YEAR = EXC_BASEURL + 'search/AdvancedSearch_Results.htm?searchWord=%s&year_in=%s&year_in_to=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
 EXC_SEARCH_MOVIES = EXC_BASEURL + 'search/AdvancedSearch_Results.htm?searchWord=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
 EXC_MOVIE_INFO = EXC_BASEURL + 'AdultDVD/%s'
+EXC_STAR_PHOTO = 'http://images.excaliburfilms.com/pornlist/starpicsAA020309/%s.jpg'
 
 titleFormats = r'DVD|Blu-Ray|BR|Combo|Pack'
 
@@ -128,6 +129,12 @@ class EXCAgent(Agent.Movies):
       for member in starring:
         role = metadata.roles.new()
         role.actor = member.replace('&#13;', '').strip('. \t\n\r')
+
+        role.photo = EXC_STAR_PHOTO % role.actor.replace(' ', '_')
+        # actorThumbUrl = EXC_STAR_PHOTO % role.actor.replace(' ', '_')
+        # actorThumb = HTTP.Request(actorThumbUrl)
+        # role.photo = Proxy.Preview(actorThumb)
+
         Log('Starring: ' + role.actor)
     except: pass
 
