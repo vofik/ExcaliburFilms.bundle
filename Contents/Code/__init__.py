@@ -3,8 +3,8 @@ import re
 
 # URLS
 EXC_BASEURL = 'http://www.excaliburfilms.com/'
-EXC_SEARCH_MOVIES_YEAR = EXC_BASEURL + 'search/AdvancedSearch_Result.htm?searchWord=%s&year_in=%s&year_in_to=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
-EXC_SEARCH_MOVIES = EXC_BASEURL + 'search/AdvancedSearch_Result.htm?searchWord=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
+EXC_SEARCH_MOVIES_YEAR = EXC_BASEURL + 'search/AdvancedSearch_Results.htm?searchWord=%s&year_in=%s&year_in_to=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
+EXC_SEARCH_MOVIES = EXC_BASEURL + 'search/AdvancedSearch_Results.htm?searchWord=%s&studio_in=ALL&category_in=ALL&inmovies=No&TrailerMovies=No&x=57&y=16&fromSearchPage=YES'
 EXC_MOVIE_INFO = EXC_BASEURL + 'AdultDVD/%s'
 
 titleFormats = r'DVD|Blu-Ray|BR|Combo|Pack'
