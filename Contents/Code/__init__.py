@@ -88,6 +88,19 @@ class EXCAgent(Agent.Movies):
       metadata.posters[posterUrl] = Proxy.Preview(thumb)
     except: pass
 
+    # Genre.
+    try:
+      metadata.genres.clear()
+      genres = html.xpath('//table[@width="620"]//table[@width="620"]//a[contains(@href, "DVD/Categories")]')
+
+      if len(genres) > 0:
+        for genreLink in genres:
+          genreName = genreLink.text_content().strip('\n')
+          if len(genreName) > 0 and re.match(r'View Complete List', genreName) is None:
+            metadata.genres.add(genreName)
+    except: pass
+
+
     # Summary.
     try:
       metadata.summary = ""
