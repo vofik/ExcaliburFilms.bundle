@@ -67,8 +67,9 @@ class EXCAgent(Agent.Movies):
           results.Append(MetadataSearchResult(id = curID, name = curName, score = score, lang = lang))
         count += 1
     else:
+      # check if we got exact match?
       curName = re.sub(titleFormats,'',searchTitle).strip(' .-+')
-      curID = searchResults.xpath('//a[contains(@href, "mailto") and contains(@href, "AdultDVD")]')[0].get('href')
+      curID = searchResults.xpath('//link[@rel="canonical"]')[0].get('href')
       curID = re.search(r'/([^\\/]*)$', curID, re.M).group(1)
       results.Append(MetadataSearchResult(id = curID, name = curName, score = 90, lang = lang))
 
